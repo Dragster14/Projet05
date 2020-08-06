@@ -1,0 +1,34 @@
+/* -------------------- */
+/*         POLICE       */
+/* -------------------- */
+
+@font-face {
+    font-family: 'Belligerent';
+    src: url('fonts/belligerent-webfont.eot') format('opentype'),
+         url('fonts/belligerent-webfont.svg') format('svg'),
+         url('fonts/belligerent-webfont.ttf') format('truetype'),
+         url('fonts/belligerent-webfont.woff') format('woff');
+}
+
+/* -------------------- */
+/*         HEADER       */
+/* -------------------- */
+
+/* ---- dégradé icône caddie ---- */
+.fa-shopping-cart {
+    background: linear-gradient(to bottom right, #EE8438 0%, #935EF6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ---- logo ---- */
+nav a h1 {
+    font-family: 'Belligerent', 'Georgia', 'Times New Roman', 'Times', 'serif';
+    font-size: 3.2rem;
+}
+
+/* ---- liens navigation ---- */
+nav a {
+    font-family: 'Georgia', 'Times New Roman', 'Times', 'serif';
+    font-size: 1.2rem;
+}
