@@ -62,3 +62,13 @@ article p {
 .fa {
     font-size: 2rem;
 }
+
+.color_link {
+    color: #157E7E;
+    border-color: #157E7E;
+}
+
+.color_link:hover {
+    background-color: #157E7E;
+    color: white;
+}
