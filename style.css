@@ -42,11 +42,26 @@ nav a {
 }
 
 /* -------------------- */
-/*       BIENVENUE      */
+/*        WELCOME       */
 /* -------------------- */
 
 article p {
     font-size: 1.4rem;
+}
+
+/* -------------------- */
+/*       PRODUCTS       */
+/* -------------------- */
+
+/* ---- couleur bouton des produits ---- */
+.color_btn {
+    color: #157E7E;
+    border-color: #157E7E;
+}
+
+.color_btn:hover {
+    background-color: #157E7E;
+    color: white;
 }
 
 /* -------------------- */
@@ -61,14 +76,4 @@ article p {
 /* ---- taille logo réseaux sociaux ---- */
 .fa {
     font-size: 2rem;
-}
-
-.color_link {
-    color: #157E7E;
-    border-color: #157E7E;
-}
-
-.color_link:hover {
-    background-color: #157E7E;
-    color: white;
 }
