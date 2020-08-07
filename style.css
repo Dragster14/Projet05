@@ -48,3 +48,17 @@ nav a {
 article p {
     font-size: 1.4rem;
 }
+
+/* -------------------- */
+/*        FOOTER        */
+/* -------------------- */
+
+/* ---- taille texte ---- */
+.footer_size {
+    font-size: 0.9rem;
+}
+
+/* ---- taille logo réseaux sociaux ---- */
+.fa {
+    font-size: 2rem;
+}
