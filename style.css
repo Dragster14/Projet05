@@ -11,6 +11,15 @@
 }
 
 /* -------------------- */
+/*        GENERAL       */
+/* -------------------- */
+
+/* ---- police ---- */
+a, p {
+    font-family: 'Georgia', 'Times New Roman', 'Times', 'serif';
+}
+
+/* -------------------- */
 /*         HEADER       */
 /* -------------------- */
 
@@ -29,6 +38,13 @@ nav a h1 {
 
 /* ---- liens navigation ---- */
 nav a {
-    font-family: 'Georgia', 'Times New Roman', 'Times', 'serif';
     font-size: 1.2rem;
+}
+
+/* -------------------- */
+/*       BIENVENUE      */
+/* -------------------- */
+
+article p {
+    font-size: 1.4rem;
 }
