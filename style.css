@@ -82,7 +82,15 @@ article p {
     font-size: 0.9rem;
 }
 
-/* ---- taille logo réseaux sociaux ---- */
+/* ---- taille + couleur logo réseaux sociaux et mentions légales    ---- */
 .fa {
     font-size: 2rem;
+}
+
+.fa, .footer_mentions {
+    color: white;
+}
+
+.fa:hover, .footer_mentions:hover {
+    color: rgba(255, 255, 255, 0.541);
 }
