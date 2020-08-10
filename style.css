@@ -74,6 +74,15 @@ article p {
 }
 
 /* -------------------- */
+/*     PRESENTATION     */
+/* -------------------- */
+
+/* ---- background presentation ---- */
+.grey-bg {
+    background-color: #e9ecef;
+}
+
+/* -------------------- */
 /*        FOOTER        */
 /* -------------------- */
 
