@@ -110,26 +110,26 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="lastname">Nom</label>
-                <input type="text" class="form-control" id="lastname" placeholder="Nom" />
+                <input type="text" class="form-control" id="lastname" placeholder="Nom" required />
             </div>
             <div class="form-group col-md-6">
                 <label for="firstname">Prénom</label>
-                <input type="text" class="form-control" id="firstname" placeholder="Prénom" />
+                <input type="text" class="form-control" id="firstname" placeholder="Prénom" required />
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email" />
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email" required />
             </div>
             <div class="form-group col-md-6">
                 <label for="phone">Téléphone</label>
-                <input type="text" class="form-control" id="phone" placeholder="06xxxxxxxx" />
+                <input type="tel" minlength="10" maxlength="10" class="form-control" id="phone" placeholder="06xxxxxxxx" required />
             </div>
         </div>
         <div class="form-group">
             <label for="inputAddress">Adresse</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="03 rue Jacques" />
+            <input type="text" class="form-control" id="inputAddress" placeholder="03 rue Jacques" required />
         </div>
         <div class="form-group">
             <label for="inputAddress2">Complément d'adresse</label>
@@ -138,15 +138,15 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputCity">Ville</label>
-                <input type="text" class="form-control" id="inputCity" placeholder="Paris" />
+                <input type="text" class="form-control" id="inputCity" placeholder="Paris" required />
             </div>
             <div class="form-group col-md-2">
                 <label for="inputZip">Code postal</label>
-                <input type="text" class="form-control" id="inputZip" placeholder="75000" />
+                <input type="tel" minlength="5" maxlength="5" class="form-control" id="inputZip" placeholder="75000" required />
             </div>
             <div class="form-group col-md-4">
                 <label for="inputState">Pays</label>
-                <input type="text" class="form-control" id="inputState" placeholder="France" />
+                <input type="text" class="form-control" id="inputState" placeholder="France" required />
             </div>
         </div>
         <button type="submit" class="btn btn-outline-primary mt-3">Commander</button>
