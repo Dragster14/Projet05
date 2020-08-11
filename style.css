@@ -55,6 +55,11 @@ nav a {
     width: 800px;
 }
 
+/* ---- background texte carousel ---- */
+.carousel_bg {
+    background-color: rgba(52,58,64,0.7);
+}
+
 /* -------------------- */
 /*        WELCOME       */
 /* -------------------- */
