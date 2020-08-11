@@ -19,6 +19,11 @@ a, p {
     font-family: 'Georgia', 'Times New Roman', 'Times', 'serif';
 }
 
+/* ---- background presentation + mentions ---- */
+.grey-bg {
+    background-color: #e9ecef;
+}
+
 /* -------------------- */
 /*         HEADER       */
 /* -------------------- */
@@ -71,15 +76,6 @@ article p {
 .color_btn:hover {
     background-color: #157E7E;
     color: white;
-}
-
-/* -------------------- */
-/*     PRESENTATION     */
-/* -------------------- */
-
-/* ---- background presentation ---- */
-.grey-bg {
-    background-color: #e9ecef;
 }
 
 /* -------------------- */
