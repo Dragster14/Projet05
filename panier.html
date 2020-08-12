@@ -101,7 +101,7 @@
 <!--Cart-End -->
 
 <!--Form -->
-    <form class="container mt-5">
+    <form action="#" method="" class="container mt-5">
         <div class="row mb-4">
             <div class="col-12">
                 <h4>Merci de renseigner vos coordonnées</h4>
@@ -149,9 +149,30 @@
                 <input type="text" class="form-control" id="inputState" placeholder="France" required />
             </div>
         </div>
-        <button type="submit" class="btn btn-outline-primary mt-3">Commander</button>
+        <div class="row mt-3">
+            <div class="col-12">
+                <p>
+                    Vos données personnelles seront utilisées pour le traitement de votre commande, vous accompagner au cours de votre visite du site web, et pour d’autres raisons décrites dans nos <a href="mentions.html">mentions légales</a>.
+                </p>
+            </div>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="Check" required>
+            <label class="form-check-label" for="Check">J'ai lu et j'accepte les <a href="mentions.html">conditions générales de vente</a>.</label>
+          </div>
+        <button type="submit" id="commander" class="btn btn-outline-primary mt-3">Commander</button>
     </form>
 <!-- Form-End -->
+
+<!-- Button confirmation-->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <button id="button_confirm" class="btn btn-outline-primary mt-5">Voir ma confirmation</button>
+            </div>
+        </div>
+    </div>
+<!-- Button confirmation-End-->
 
 <!-- Footer -->
     <footer class="container-fluid mt-5">
@@ -191,5 +212,6 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
     </body>
 </html>
