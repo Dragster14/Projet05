@@ -25,6 +25,6 @@ document.querySelector('#commander').addEventListener('click', function(event) {
 
 // Redirection vers confirmation.html
 document.querySelector('#button_confirm').addEventListener('click', function(event) {
-    document.location.href="index.html"
+    document.location.href="confirmation.html"
 })
 
