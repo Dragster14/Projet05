@@ -101,7 +101,7 @@
 <!--Cart-End -->
 
 <!--Form -->
-    <form action="#" method="" class="container mt-5">
+    <form id="form" action="" method="" class="container mt-5">
         <div class="row mb-4">
             <div class="col-12">
                 <h4>Merci de renseigner vos coordonnées</h4>
@@ -110,43 +110,43 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="lastname">Nom</label>
-                <input type="text" class="form-control" id="lastname" placeholder="Nom" required />
+                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom" aria-label="Ecrire son nom" aria-live="polite" required />
             </div>
             <div class="form-group col-md-6">
                 <label for="firstname">Prénom</label>
-                <input type="text" class="form-control" id="firstname" placeholder="Prénom" required />
+                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Prénom" aria-label="Ecrire son prénom" aria-live="polite" required />
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email" required />
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" aria-label="Ecrire son email" aria-live="polite" required />
             </div>
             <div class="form-group col-md-6">
                 <label for="phone">Téléphone</label>
-                <input type="tel" minlength="10" maxlength="10" class="form-control" id="phone" placeholder="06xxxxxxxx" required />
+                <input type="tel" minlength="10" maxlength="10" class="form-control" id="phone"  name="phone" placeholder="06xxxxxxxx" aria-label="Ecrire son numéro de téléphone" aria-live="polite" required />
             </div>
         </div>
         <div class="form-group">
-            <label for="inputAddress">Adresse</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="03 rue Jacques" required />
+            <label for="address">Adresse</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="03 rue Jacques" aria-label="Ecrire son adresse postale" aria-live="polite" required />
         </div>
         <div class="form-group">
-            <label for="inputAddress2">Complément d'adresse</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Appartement, Etage, Bâtiment, Résidence..." />
+            <label for="address2">Complément d'adresse</label>
+            <input type="text" class="form-control" id="address2" name="address2" placeholder="Appartement, Etage, Bâtiment, Résidence..." aria-label="Ecrire ses compléments d'adresse postale" aria-live="polite" />
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputCity">Ville</label>
-                <input type="text" class="form-control" id="inputCity" placeholder="Paris" required />
+                <label for="city">Ville</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Paris" aria-label="Ecrire sa ville" aria-live="polite" required />
             </div>
             <div class="form-group col-md-2">
-                <label for="inputZip">Code postal</label>
-                <input type="tel" minlength="5" maxlength="5" class="form-control" id="inputZip" placeholder="75000" required />
+                <label for="zip">Code postal</label>
+                <input type="tel" minlength="5" maxlength="5" class="form-control" id="zip" name="zip" placeholder="75000" aria-label="Ecrire son code postal" aria-live="polite" required />
             </div>
             <div class="form-group col-md-4">
-                <label for="inputState">Pays</label>
-                <input type="text" class="form-control" id="inputState" placeholder="France" required />
+                <label for="state">Pays</label>
+                <input type="text" class="form-control" id="state" name="state" placeholder="France" aria-label="Ecrire son pays" aria-live="polite" required />
             </div>
         </div>
         <div class="row mt-3">
@@ -157,22 +157,12 @@
             </div>
         </div>
         <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="Check" required>
-            <label class="form-check-label" for="Check">J'ai lu et j'accepte les <a href="mentions.html">conditions générales de vente</a>.</label>
+            <input type="checkbox" class="form-check-input" id="check" name="check" required>
+            <label class="form-check-label" for="check">J'ai lu et j'accepte les <a href="mentions.html">conditions générales de vente</a>.</label>
           </div>
         <button type="submit" id="commander" class="btn btn-outline-primary mt-3">Commander</button>
     </form>
 <!-- Form-End -->
-
-<!-- Button confirmation-->
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <button id="button_confirm" class="btn btn-outline-primary mt-5">Voir ma confirmation de commande</button>
-            </div>
-        </div>
-    </div>
-<!-- Button confirmation-End-->
 
 <!-- Footer -->
     <footer class="container-fluid mt-5">
