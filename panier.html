@@ -69,7 +69,7 @@
 <!-- Header-End -->
 
 <!-- Jumbotron Cart-->
-    <article class="container">
+    <article id="empty-cart" class="container">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4 mb-5">Votre panier est vide :(</h1>
@@ -79,35 +79,29 @@
 <!-- Jumbotron Cart-End -->
 
 <!-- Cart -->
-    /<!--<table class="container table mt-5">
+    <table id="cart" class="container table mt-5">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Articles</th>
-                <th scope="col">Quantité</th>
-                <th scope="col">Lentille</th>
-                <th scope="col">Prix</th>
-                <th scope="col">Frais de port</th>
-                <th scope="col">Total</th>
+                <th scope="col" class="text-center">Quantité</th>
+                <th scope="col" class="text-center">Lentille</th>
+                <th scope="col" class="text-center">Prix</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">Caméra Expert XX</th>
-                <td>01</td>
-                <td>Objectif à focale Fixe</td>
-                <td>700€</td>
-                <td>Offert</td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="text-center text-danger font-weight-bold">700€</td>
-            </tr>
+            <tr id="products"></tr>
         </tbody>
-    </table>-->
+    </table>
+    <table id="total-cart" class="container table mt-5">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="text-center">Total Panier</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="total-products"></tr>
+        </tbody>
+    </table>
 <!--Cart-End -->
 
 <!-- Message erreur formulaire -->
@@ -150,11 +144,11 @@
             <input type="text" class="form-control" id="address2" name="address2" placeholder="Appartement, Etage, Bâtiment, Résidence..." aria-label="Ecrire ses compléments d'adresse postale" aria-live="polite" />
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-5">
                 <label for="city">Votre ville</label>
                 <input type="text" class="form-control" id="city" name="city" placeholder="Paris" aria-label="Ecrire sa ville" aria-live="polite" pattern="^([a-zA-Z]|[à-ú]|[À-Ú])+$" />
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
                 <label for="zip">Votre code postal</label>
                 <input type="tel" minlength="5" maxlength="5" class="form-control" id="zip" name="zip" placeholder="75000" aria-label="Ecrire son code postal" aria-live="polite" pattern="^\d{5}$" />
             </div>
@@ -174,7 +168,7 @@
             <input type="checkbox" class="form-check-input" id="checkbox" name="checkbox" aria-label="Cocher pour indiquer accepter et avoir lu les conditions générales de vente">
             <label class="form-check-label" for="checkbox">J'ai lu et j'accepte les <a href="mentions.html" target="_blank">conditions générales de vente</a>.</label>
           </div>
-        <button type="submit" class="btn btn-outline-primary mt-3" aria-label="Bouton pour passer la commande">Commander</button>
+        <button type="submit" id="submit-btn" class="btn btn-outline-primary mt-3" aria-label="Bouton pour passer la commande">Commander</button>
     </form>
 <!-- Form-End -->
 

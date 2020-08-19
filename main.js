@@ -38,7 +38,8 @@ for (let i=0; i < addToCart.length; i++) {
         let lens = parseInt(document.querySelector('#lens').selectedOptions[0].value, 4)
     
         if (lens >= 1) {
-            cartNumbers();
+            cartNumbers(products[i]);
+            totalCost(products[i]);
             alert('Article correctement ajouté au panier !')
         } else {
             alert('Veuillez choisir une lentille pour continuer.')
@@ -54,9 +55,8 @@ function onLoadCartNumbers() {
     }
 }
 
-function cartNumbers() {
+function cartNumbers(product) {
     let productNumbers = localStorage.getItem('cartNumbers');
-
     productNumbers = parseInt(productNumbers);
 
     if (productNumbers) {
@@ -66,9 +66,85 @@ function cartNumbers() {
         localStorage.setItem('cartNumbers', 1);
         document.querySelector('.span').textContent = 1;
     }
+
+    setItems(product);
+}
+
+function setItems(product) {
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+
+    if (cartItems != null) {
+        //maybe
+        if (cartItems[product.tag] == undefined) {
+            cartItems = {
+                ...cartItems,
+                [product.tag]: product
+            }
+        }
+        //maybe-end
+        cartItems[product.tag].inCart += 1; 
+    } else {
+        product.inCart = 1;
+        cartItems = {
+        [product.tag]: product
+        }
+    }
+    localStorage.setItem('productsInCart', JSON.stringify(cartItems));
+}
+
+function totalCost(product) {
+    let cartCost = localStorage.getItem('totalCost');
+
+    if (cartCost != null) {
+        cartCost = parseInt(cartCost);
+        localStorage.setItem('totalCost', cartCost + product.price);
+    } else {
+        localStorage.setItem('totalCost', product.price);
+    }
+}
+
+function displayCart() {
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+    let productContainer = document.querySelector('#products');
+    let totalProducts = document.querySelector('#total-products');
+    let cartCost = localStorage.getItem('totalCost');
+
+    if (cartItems && productContainer) {
+        document.querySelector('#empty-cart').style.display = "none";
+        productContainer.innerHTML = '';
+        Object.values(cartItems).map(item => {
+            productContainer.innerHTML += `
+            <th scope="row">
+                <span>${item.name}</span>
+            </th>
+            <td class="text-center">
+                <span>${item.inCart}</span>
+            </td>
+            <td class="text-center">
+                <span>--</span>
+            </td>
+            <td class="text-center">
+                ${item.price} €
+            </td>
+            `
+        });
+
+        totalProducts.innerHTML += `
+            <th class="text-center">
+                    ${cartCost} €
+            </th>
+        `
+    } else {
+        document.querySelector('#cart').style.display = "none";
+        document.querySelector('#total-cart').style.display = "none";
+        document.querySelector('#submit-btn').style.display = "none";
+    }
 }
 
 onLoadCartNumbers();
+displayCart();
 
 
 // Validation formulaire
