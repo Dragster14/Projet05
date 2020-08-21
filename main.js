@@ -112,7 +112,7 @@ function displayCart() {
     let cartCost = localStorage.getItem('totalCost');
 
     if (cartItems && productContainer) {
-        document.querySelector('#empty-cart').style.display = "none";
+        document.querySelector('#submit-btn').removeAttribute('disabled');
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
             productContainer.innerHTML += `
@@ -137,9 +137,15 @@ function displayCart() {
             </th>
         `
     } else {
-        document.querySelector('#cart').style.display = "none";
-        document.querySelector('#total-cart').style.display = "none";
-        document.querySelector('#submit-btn').style.display = "none";
+        document.querySelector('#empty-cart').innerHTML = `
+            <article id="empty-cart" class="container">
+                <div class="jumbotron jumbotron-fluid"\>
+                    <div class="container"\>
+                        <h1 class="display-4 mb-5">Votre panier est vide :(</h1\>
+                    </div\>
+                </div\>
+            </article>
+        `
     }
 }
 
@@ -148,120 +154,173 @@ displayCart();
 
 
 // Validation formulaire
-function validate_form () {
-    let error = document.querySelector('#error');
-    let lastName = document.querySelector('#lastname');
-    let firstName = document.querySelector('#firstname');
-    let email = document.querySelector('#email');
-    let phone = document.querySelector('#phone');
-    let address = document.querySelector('#address');
-    let city = document.querySelector('#city');
-    let zip = document.querySelector('#zip');
-    let state = document.querySelector('#state');
-    let checkBox = document.querySelector('#checkbox').checked;
+let lastName = document.querySelector('#lastname');
+let errorLastName = document.querySelector('#error-lastname');
+let lastNameValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
 
+let firstName = document.querySelector('#firstname');
+let errorFirstName = document.querySelector('#error-firstname');
+let firstNameValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+
+let email = document.querySelector('#email');
+let errorEmail = document.querySelector('#error-email');
+let emailValid = /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/;
+
+let phone = document.querySelector('#phone');
+let errorPhone = document.querySelector('#error-phone');
+let phoneValid = /^0\d{9}$/;
+
+let address = document.querySelector('#address');
+let errorAddress = document.querySelector('#error-address');
+
+let city = document.querySelector('#city');
+let errorCity = document.querySelector('#error-city');
+let cityValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+
+let zip = document.querySelector('#zip');
+let errorZip = document.querySelector('#error-zip');
+let zipValid = /^\d{5}$/;
+
+let state = document.querySelector('#state');
+let errorState = document.querySelector('#error-state');
+let stateValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+
+let checkBox = document.querySelector('#checkbox');
+
+let submitBtn = document.querySelector('#submit-btn');
+
+submitBtn.addEventListener('click', validForm);
+
+function validForm(event) {
+    
     if (lastName.value === '' || lastName.value == null) {
-        error.innerHTML = 'Nom requis';
+        errorLastName.innerHTML = 'Nom requis';
         lastName.style.borderColor = "red";
         lastName.style.boxShadow = "0px 0px 8px red";
-        lastName.focus();
-        return false;
+        event.preventDefault();
+        } else if (lastNameValid.test(lastName.value) == false){
+        errorLastName.innerHTML = 'Format incorrect';
+        lastName.style.borderColor = "red";
+        lastName.style.boxShadow = "0px 0px 8px red";
+        event.preventDefault();
     } else {
-        error.innerHTML = "";
+        errorLastName.innerHTML = "";
         lastName.style.borderColor = "green";
         lastName.style.boxShadow = "";
     }
 
     if (firstName.value === '' || firstName.value == null) {
-        error.innerHTML = 'Prénom requis';
+        errorFirstName.innerHTML = 'Prénom requis';
         firstName.style.borderColor = "red";
         firstName.style.boxShadow = "0px 0px 8px red";
-        firstName.focus();
-        return false;
+        event.preventDefault();
+    } else if (firstNameValid.test(firstName.value) == false){
+        errorFirstName.innerHTML = 'Format incorrect';
+        firstName.style.borderColor = "red";
+        firstName.style.boxShadow = "0px 0px 8px red";
+        event.preventDefault();
     } else {
-        error.innerHTML = "";
+        errorFirstName.innerHTML = "";
         firstName.style.borderColor = "green";
         firstName.style.boxShadow = "";
     }
 
     if (email.value === '' || email.value == null) {
-        error.innerHTML = 'Email requis';
+        errorEmail.innerHTML = 'Email requis';
         email.style.borderColor = "red";
         email.style.boxShadow = "0px 0px 8px red";
-        email.focus();
-        return false;
+        event.preventDefault();
+    } else if (emailValid.test(email.value) == false){
+        errorEmail.innerHTML = 'Format incorrect';
+        email.style.borderColor = "red";
+        email.style.boxShadow = "0px 0px 8px red";
+        event.preventDefault();
     } else {
-        error.innerHTML = "";
+        errorEmail.innerHTML = "";
         email.style.borderColor = "green";
         email.style.boxShadow = "";
     }
 
     if (phone.value === '' || phone.value == null) {
-        error.innerHTML = 'N° de téléphone requis';
+        errorPhone.innerHTML = 'N° de téléphone requis';
         phone.style.borderColor = "red";
         phone.style.boxShadow = "0px 0px 8px red";
-        phone.focus();
-        return false;
+        event.preventDefault();
+    } else if (phoneValid.test(phone.value) == false){
+        errorPhone.innerHTML = 'Format incorrect';
+        phone.style.borderColor = "red";
+        phone.style.boxShadow = "0px 0px 8px red";
+        event.preventDefault();
     } else {
-        error.innerHTML = "";
+        errorPhone.innerHTML = "";
         phone.style.borderColor = "green";
         phone.style.boxShadow = "";
     }
 
     if (address.value === '' || address.value == null) {
-        error.innerHTML = 'Adresse requise';
+        errorAddress.innerHTML = 'Adresse requise';
         address.style.borderColor = "red";
         address.style.boxShadow = "0px 0px 8px red";
-        address.focus();
-        return false;
+        event.preventDefault();
     } else {
-        error.innerHTML = "";
+        errorAddress.innerHTML = "";
         address.style.borderColor = "green";
         address.style.boxShadow = "";
     }
 
     if (city.value === '' || city.value == null) {
-        error.innerHTML = 'Ville requise';
+        errorCity.innerHTML = 'Ville requise';
         city.style.borderColor = "red";
         city.style.boxShadow = "0px 0px 8px red";
-        city.focus();
-        return false;
+        event.preventDefault();
+    } else if (cityValid.test(city.value) == false){
+        errorCity.innerHTML = 'Format incorrect';
+        city.style.borderColor = "red";
+        city.style.boxShadow = "0px 0px 8px red";
+        event.preventDefault();
     } else {
-        error.innerHTML = "";
+        errorCity.innerHTML = "";
         city.style.borderColor = "green";
         city.style.boxShadow = "";
     }
 
     if (zip.value === '' || zip.value == null) {
-        error.innerHTML = 'Code postal requis';
+        errorZip.innerHTML = 'Code postal requis';
         zip.style.borderColor = "red";
         zip.style.boxShadow = "0px 0px 8px red";
-        zip.focus();
-        return false;
+        event.preventDefault();
+    } else if (zipValid.test(zip.value) == false){
+        event.preventDefault();
+        errorZip.innerHTML = 'Format incorrect';
+        zip.style.borderColor = "red";
+        zip.style.boxShadow = "0px 0px 8px red";
+        event.preventDefault();
     } else {
-        error.innerHTML = "";
+        errorZip.innerHTML = "";
         zip.style.borderColor = "green";
         zip.style.boxShadow = "";
     }
 
     if (state.value === '' || state.value == null) {
-        error.innerHTML = 'Pays requis';
+        errorState.innerHTML = 'Pays requis';
         state.style.borderColor = "red";
         state.style.boxShadow = "0px 0px 8px red";
-        state.focus();
-        return false;
+        event.preventDefault();
+    } else if (stateValid.test(state.value) == false){
+        errorState.innerHTML = 'Format incorrect';
+        state.style.borderColor = "red";
+        state.style.boxShadow = "0px 0px 8px red";
+        event.preventDefault();
     } else {
-        error.innerHTML = "";
+        errorState.innerHTML = "";
         state.style.borderColor = "green";
         state.style.boxShadow = "";
     }
 
-    if (checkBox == false && lastName.value === '' || lastName.value == null && firstName.value === '' || firstName.value == null && email.value === '' || email.value == null && phone.value === '' || phone.value == null && address.value === '' || address.value == null && city.value === '' || city.value == null && zip.value === '' || zip.value == null && state.value === '' || state.value == null) {
-        return false;
-    } else if (checkBox == false && lastname.value != '' && lastName.value != null && firstName.value != '' && firstName.value != null && email.value != '' && email.value != null && phone.value != '' && phone.value != null && address.value != '' && address.value != null && city.value != '' && city.value != null && zip.value != '' && zip.value != null && state.value != '' && state.value != null) {
+    if (checkBox.checked == false && lastName.value === '' || lastName.value == null || lastNameValid.test(lastName.value) == false && firstName.value === '' || firstName.value == null || firstNameValid.test(firstName.value) == false && email.value === '' || email.value == null || emailValid.test(email.value) == false && phone.value === '' || phone.value == null || phoneValid.test(phone.value) == false && address.value === '' || address.value == null && city.value === '' || city.value == null || cityValid.test(city.value) == false && zip.value === '' || zip.value == null || zipValid.test(zip.value) == false && state.value === '' || state.value == null || stateValid.test(state.value) == false) {
+        event.preventDefault();
+    } else if (checkBox.checked == false && lastName.value != '' && lastName.value != null && lastNameValid.test(lastName.value) == true && firstName.value != '' && firstName.value != null && firstNameValid.test(firstName.value) == true && email.value != '' && email.value != null && emailValid.test(email.value) == true && phone.value != '' && phone.value != null && phoneValid.test(phone.value) == true && address.value != '' && address.value != null && city.value != '' && city.value != null && cityValid.test(city.value) == true && zip.value != '' && zip.value != null && zipValid.test(zip.value) == true && state.value != '' && state.value != null && stateValid.test(state.value) == true) {
         alert("Merci de lire et d'accepter les conditions générales de vente pour pouvoir continuer.");
-        return false;
+        event.preventDefault();
     }
-
-    return true;
 }
