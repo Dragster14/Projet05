@@ -1,4 +1,16 @@
 /* -------------------- */
+/*       SOMMAIRE       */
+/* -------------------- */
+/*
+L.25    ->  GENERAL
+L.39    ->  HEADER
+L.61    ->  CARROUSEL
+L.75    ->  BIENVENUE
+L.84    ->  PRODUITS
+L.99    ->  FOOTER
+*/
+
+/* -------------------- */
 /*         POLICE       */
 /* -------------------- */
 
@@ -47,21 +59,21 @@ nav a {
 }
 
 /* -------------------- */
-/*       CAROUSEL       */
+/*       CARROUSEL      */
 /* -------------------- */
 
-/* ---- taille carousel ---- */
+/* ---- taille carrousel ---- */
 .width_carousel {
     width: 800px;
 }
 
-/* ---- background texte carousel ---- */
+/* ---- background texte carrousel ---- */
 .carousel_bg {
     background-color: rgba(52,58,64,0.7);
 }
 
 /* -------------------- */
-/*        WELCOME       */
+/*       BIENVENUE      */
 /* -------------------- */
 
 /* ---- taille texte ---- */
@@ -70,7 +82,7 @@ article p {
 }
 
 /* -------------------- */
-/*       PRODUCTS       */
+/*       PRODUITS       */
 /* -------------------- */
 
 /* ---- couleur bouton des produits ---- */
