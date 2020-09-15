@@ -1,3 +1,8 @@
+// Lien vers panier off
+//document.querySelector('#panier').style.pointerEvents = "none";
+//document.querySelector('#panier').style.pointerEvents = "auto";
+
+// Ajout au panier
 let addToCart = document.querySelectorAll('#add-to-cart');
 
 let products = [
@@ -76,12 +81,12 @@ function setItems(product) {
 
     if (cartItems != null) {
         //maybe
-        if (cartItems[product.tag] == undefined) {
+        /*if (cartItems[product.tag] == undefined) {
             cartItems = {
                 ...cartItems,
                 [product.tag]: product
             }
-        }
+        }*/
         //maybe-end
         cartItems[product.tag].inCart += 1; 
     } else {
@@ -112,7 +117,6 @@ function displayCart() {
     let cartCost = localStorage.getItem('totalCost');
 
     if (cartItems && productContainer) {
-        document.querySelector('#submit-btn').removeAttribute('disabled');
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
             productContainer.innerHTML += `
