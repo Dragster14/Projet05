@@ -9,8 +9,6 @@
         <link rel="icon" type="image/png" href="images/favicon.png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-
-
 <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous" />
         <link rel="stylesheet" type="text/css" href="style.css" />
@@ -57,8 +55,8 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a href="panier.html" class="nav-link">
-                                    Panier
+                                <a href="panier.html" class="nav-link" id="lienPanier">
+                                    Panier <span id="compteurPanier">0</span>
                                 </a>
                             </li>
                         </ul>
@@ -67,6 +65,24 @@
             </div>
         </header>
 <!-- Header-Fin -->
+
+<!-- Confirmation commande -->
+        <article>
+            <h1>
+                Confirmation de votre commande :
+            </h1>
+        </article>
+<!-- Confirmation commande-Fin -->
+
+<!-- Rappel produits -->
+        <div class="container mt-5">
+            <h2>
+                Récapitulatif de votre commande :
+            </h2>
+            <table id="produits" class="container table mt-5"></table>
+            <table id="total-produits" class="container table mt-5"></table>
+        </div>
+<!-- Rappel produits-Fin -->
 
 <!-- Footer -->
         <footer class="container-fluid mt-5 bg-dark">
@@ -110,5 +126,6 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
     </body>
 </html>

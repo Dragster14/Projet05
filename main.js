@@ -9,8 +9,7 @@ let lentilleType = [
 let cameraType = [
     {
         nom: "Caméra Expert XX",
-        prix: 700,
-        quantite: 1
+        prix: 700
     },
     {
         nom: "Caméra Puissante",
@@ -43,7 +42,11 @@ function ajoutCameraUne () {
     if (lentille > 0) {
         localStorage.setItem('cameraUne', JSON.stringify(cameraType[0]));
         document.querySelector('#lienPanier').style.pointerEvents = "auto";
-        validationAjout.innerHTML = "Produit ajouté avec succès.";
+        validationAjout.innerHTML = `
+            <div class="alert alert-success" role="alert">
+                Article ajouté avec succès !
+            </div>
+        `;
         quantiteCameraUne()
         prixCameraUne()
         produitsPanier()
@@ -89,7 +92,11 @@ function ajoutCameraDeux () {
     if (lentille > 0) {
         localStorage.setItem('cameraDeux', JSON.stringify(cameraType[1]));
         document.querySelector('#lienPanier').style.pointerEvents = "auto";
-        validationAjout.innerHTML = "Produit ajouté avec succès.";
+        validationAjout.innerHTML = `
+            <div class="alert alert-success" role="alert">
+                Article ajouté avec succès !
+            </div>
+        `;
         quantiteCameraDeux()
         prixCameraDeux()
         produitsPanier()
@@ -135,7 +142,11 @@ function ajoutCameraTrois () {
     if (lentille > 0) {
         localStorage.setItem('cameraTrois', JSON.stringify(cameraType[2]));
         document.querySelector('#lienPanier').style.pointerEvents = "auto";
-        validationAjout.innerHTML = "Produit ajouté avec succès.";
+        validationAjout.innerHTML = `
+            <div class="alert alert-success" role="alert">
+                Article ajouté avec succès !
+            </div>
+        `;
         quantiteCameraTrois()
         prixCameraTrois()
         produitsPanier()
@@ -181,7 +192,11 @@ function ajoutCameraQuatre () {
     if (lentille > 0) {
         localStorage.setItem('cameraQuatre', JSON.stringify(cameraType[3]));
         document.querySelector('#lienPanier').style.pointerEvents = "auto";
-        validationAjout.innerHTML = "Produit ajouté avec succès.";
+        validationAjout.innerHTML = `
+            <div class="alert alert-success" role="alert">
+                Article ajouté avec succès !
+            </div>
+        `;
         quantiteCameraQuatre()
         prixCameraQuatre()
         produitsPanier()
@@ -227,7 +242,11 @@ function ajoutCameraCinq () {
     if (lentille > 0) {
         localStorage.setItem('cameraCinq', JSON.stringify(cameraType[4]));
         document.querySelector('#lienPanier').style.pointerEvents = "auto";
-        validationAjout.innerHTML = "Produit ajouté avec succès.";
+        validationAjout.innerHTML = `
+            <div class="alert alert-success" role="alert">
+                Article ajouté avec succès !
+            </div>
+        `;
         quantiteCameraCinq()
         prixCameraCinq()
         produitsPanier()
@@ -375,7 +394,7 @@ function affichagePanier() {
     `;
 
     let boutonSuppressionProduitUn = `
-        <a href="#" onclick="supprimerProduitUn()" class="mr-3 text-dark" style="text-decoration: none;">
+        <a href="#" onclick="supprimerProduitUn()" class="mr-3 text-dark" style="text-decoration: none" title="Supprimer">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -384,7 +403,7 @@ function affichagePanier() {
     `;
 
     let boutonSuppressionProduitDeux = `
-        <a href="#" onclick="supprimerProduitDeux()" class="mr-3 text-dark" style="text-decoration: none;>
+        <a href="#" onclick="supprimerProduitDeux()" class="mr-3 text-dark" style="text-decoration: none" title="Supprimer">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -393,7 +412,7 @@ function affichagePanier() {
     `;
 
     let boutonSuppressionProduitTrois = `
-        <a href="#" onclick="supprimerProduitTrois()" class="mr-3 text-dark" style="text-decoration: none;>
+        <a href="#" onclick="supprimerProduitTrois()" class="mr-3 text-dark" style="text-decoration: none" title="Supprimer">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -402,7 +421,7 @@ function affichagePanier() {
     `;
 
     let boutonSuppressionProduitQuatre = `
-        <a href="#" onclick="supprimerProduitQuatre()" class="mr-3 text-dark" style="text-decoration: none;>
+        <a href="#" onclick="supprimerProduitQuatre()" class="mr-3 text-dark" style="text-decoration: none" title="Supprimer">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -411,7 +430,7 @@ function affichagePanier() {
     `;
 
     let boutonSuppressionProduitCinq = `
-        <a href="#" onclick="supprimerProduitCinq()" class="mr-3 text-dark" style="text-decoration: none;>
+        <a href="#" onclick="supprimerProduitCinq()" class="mr-3 text-dark" style="text-decoration: none" title="Supprimer">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -544,6 +563,38 @@ function affichagePanier() {
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
         document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraDeux + prixCameraTrois + " €";
+    } else if (panierCameraUne != null && panierCameraDeux != null && panierCameraQuatre != null && panierCameraTrois == null && panierCameraCinq == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauDeux + panierTableauQuatre;
+        coutTotal.innerHTML = totalPanier;
+
+        document.getElementById('nomTableauUn').innerHTML = boutonSuppressionProduitUn + cameraType[0].nom;
+        document.getElementById('quantiteTableauUn').innerHTML = localStorage.getItem('quantiteCameraUne');
+        document.getElementById('lentilleTableauUn').innerHTML = localStorage.getItem('lentilleCameraUne');
+        document.getElementById('prixTableauUn').innerHTML = prixCameraUne + " €";
+        document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
+        document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
+        document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
+        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
+        document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
+        document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
+        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+    } else if (panierCameraUne != null && panierCameraDeux != null && panierCameraCinq != null && panierCameraTrois == null && panierCameraQuatre == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauDeux + panierTableauCinq;
+        coutTotal.innerHTML = totalPanier;
+
+        document.getElementById('nomTableauUn').innerHTML = boutonSuppressionProduitUn + cameraType[0].nom;
+        document.getElementById('quantiteTableauUn').innerHTML = localStorage.getItem('quantiteCameraUne');
+        document.getElementById('lentilleTableauUn').innerHTML = localStorage.getItem('lentilleCameraUne');
+        document.getElementById('prixTableauUn').innerHTML = prixCameraUne + " €";
+        document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
+        document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
+        document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
+        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
+        document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
+        document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
+        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
     } else if (panierCameraUne != null && panierCameraDeux != null && panierCameraTrois != null && panierCameraQuatre != null && panierCameraCinq == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauDeux + panierTableauTrois + panierTableauQuatre;
         coutTotal.innerHTML = totalPanier;
@@ -646,6 +697,22 @@ function affichagePanier() {
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
         document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraDeux + prixCameraTrois + prixCameraQuatre + " €";
+    } else if (panierCameraDeux != null && panierCameraTrois != null && panierCameraCinq != null && panierCameraUne == null && panierCameraQuatre == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierCameraTrois + panierCameraCinq;
+        coutTotal.innerHTML = totalPanier;
+
+        document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
+        document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
+        document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
+        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
+        document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
+        document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
+        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
+        document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
+        document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
+        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
     } else if (panierCameraDeux != null && panierCameraTrois != null && panierCameraQuatre != null && panierCameraCinq != null && panierCameraUne == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierCameraTrois + panierCameraQuatre + panierCameraCinq;
         coutTotal.innerHTML = totalPanier;
@@ -680,6 +747,18 @@ function affichagePanier() {
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
         document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraTrois + prixCameraQuatre + " €";
+    } else if (panierCameraTrois != null && panierCameraCinq != null && panierCameraUne == null && panierCameraDeux == null && panierCameraQuatre == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauTrois + panierTableauCinq;
+        coutTotal.innerHTML = totalPanier;
+
+        document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
+        document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
+        document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
+        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
+        document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
+        document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
+        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
     } else if (panierCameraTrois != null && panierCameraQuatre != null && panierCameraCinq != null && panierCameraUne == null && panierCameraDeux == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauTrois + panierTableauQuatre + panierTableauCinq;
         coutTotal.innerHTML = totalPanier;
@@ -953,6 +1032,7 @@ function validationFormulaire() {
         alert("Merci de lire et d'accepter les conditions générales de vente pour pouvoir continuer.");
         return false
     } else {
+        localStorage.clear();
         return true
     }
 }
