@@ -292,8 +292,17 @@ function produitsPanierChargementPage() {
     if (nombreProduits >= 1) {
         document.querySelector('#compteurPanier').innerHTML = nombreProduits;
         document.querySelector('#lienPanier').style.pointerEvents = "auto";
-        document.querySelector('#panier-vide').style.display = "none";
         document.querySelector('#btn-commander').removeAttribute("disabled");
+    } else {
+        document.querySelector('#panier-vide').innerHTML = `
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4 mb-5">
+                        Votre panier est vide :(
+                    </h1>
+                </div>
+            </div>
+        `;
     }
 }
 
@@ -318,11 +327,11 @@ function affichagePanier() {
     let panierCameraQuatre = JSON.parse(localStorage.getItem('cameraQuatre'));
     let panierCameraCinq = JSON.parse(localStorage.getItem('cameraCinq'));
 
-    let prixCameraUne = parseInt(localStorage.getItem('prixCameraUne'));
-    let prixCameraDeux = parseInt(localStorage.getItem('prixCameraDeux'));
-    let prixCameraTrois = parseInt(localStorage.getItem('prixCameraTrois'));
-    let prixCameraQuatre = parseInt(localStorage.getItem('prixCameraQuatre'));
-    let prixCameraCinq = parseInt(localStorage.getItem('prixCameraCinq'));
+    let prixCameraUne = parseFloat(localStorage.getItem('prixCameraUne'));
+    let prixCameraDeux = parseFloat(localStorage.getItem('prixCameraDeux'));
+    let prixCameraTrois = parseFloat(localStorage.getItem('prixCameraTrois'));
+    let prixCameraQuatre = parseFloat(localStorage.getItem('prixCameraQuatre'));
+    let prixCameraCinq = parseFloat(localStorage.getItem('prixCameraCinq'));
 
     let panierProduits = document.getElementById('produits');
     let coutTotal = document.getElementById('total-produits');
@@ -465,7 +474,7 @@ function affichagePanier() {
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraDeux + " €";
     } else if (panierCameraTrois != null && panierCameraUne == null && panierCameraDeux == null && panierCameraQuatre == null && panierCameraCinq == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauTrois;
@@ -474,7 +483,7 @@ function affichagePanier() {
         document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
         document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraTrois + " €";
     } else if (panierCameraQuatre != null && panierCameraUne == null && panierCameraDeux == null && panierCameraTrois == null && panierCameraCinq == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauQuatre;
@@ -483,7 +492,7 @@ function affichagePanier() {
         document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
         document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
-        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraQuatre + " €";
     } else if (panierCameraCinq != null && panierCameraUne == null && panierCameraDeux == null && panierCameraTrois == null && panierCameraQuatre == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauCinq;
@@ -492,7 +501,7 @@ function affichagePanier() {
         document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
         document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
         document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
-        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraCinq + " €";
     } else if (panierCameraUne != null && panierCameraDeux != null && panierCameraTrois == null && panierCameraQuatre == null && panierCameraCinq == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauDeux;
@@ -505,7 +514,7 @@ function affichagePanier() {
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraDeux + " €";
     } else if (panierCameraUne != null && panierCameraTrois != null && panierCameraDeux == null && panierCameraQuatre == null && panierCameraCinq == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauTrois;
@@ -518,7 +527,7 @@ function affichagePanier() {
         document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
         document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraTrois + " €";
     } else if (panierCameraUne != null && panierCameraQuatre != null && panierCameraDeux == null && panierCameraTrois == null && panierCameraCinq == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauQuatre;
@@ -531,7 +540,7 @@ function affichagePanier() {
         document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
         document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
-        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraQuatre + " €";
     } else if (panierCameraUne != null && panierCameraCinq != null && panierCameraDeux == null && panierCameraTrois == null && panierCameraQuatre == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauCinq;
@@ -544,7 +553,7 @@ function affichagePanier() {
         document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
         document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
         document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
-        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraCinq + " €";
     } else if (panierCameraUne != null && panierCameraDeux != null && panierCameraTrois != null && panierCameraQuatre == null && panierCameraCinq == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauDeux + panierTableauTrois;
@@ -557,11 +566,11 @@ function affichagePanier() {
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
         document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraDeux + prixCameraTrois + " €";
     } else if (panierCameraUne != null && panierCameraDeux != null && panierCameraQuatre != null && panierCameraTrois == null && panierCameraCinq == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauDeux + panierTableauQuatre;
@@ -574,11 +583,12 @@ function affichagePanier() {
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
         document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
-        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
+        document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraDeux + prixCameraQuatre + " €";
     } else if (panierCameraUne != null && panierCameraDeux != null && panierCameraCinq != null && panierCameraTrois == null && panierCameraQuatre == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauDeux + panierTableauCinq;
         coutTotal.innerHTML = totalPanier;
@@ -590,11 +600,12 @@ function affichagePanier() {
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
         document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
         document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
-        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
+        document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraDeux + prixCameraCinq + " €";
     } else if (panierCameraUne != null && panierCameraDeux != null && panierCameraTrois != null && panierCameraQuatre != null && panierCameraCinq == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauDeux + panierTableauTrois + panierTableauQuatre;
         coutTotal.innerHTML = totalPanier;
@@ -606,16 +617,58 @@ function affichagePanier() {
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
         document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
         document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
         document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
-        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraDeux + prixCameraTrois + prixCameraQuatre + " €";
+    } else if (panierCameraUne != null && panierCameraDeux != null && panierCameraTrois != null && panierCameraCinq != null && panierCameraQuatre == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauDeux + panierTableauTrois + panierTableauCinq;
+        coutTotal.innerHTML = totalPanier;
+
+        document.getElementById('nomTableauUn').innerHTML = boutonSuppressionProduitUn + cameraType[0].nom;
+        document.getElementById('quantiteTableauUn').innerHTML = localStorage.getItem('quantiteCameraUne');
+        document.getElementById('lentilleTableauUn').innerHTML = localStorage.getItem('lentilleCameraUne');
+        document.getElementById('prixTableauUn').innerHTML = prixCameraUne + " €";
+        document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
+        document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
+        document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
+        document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
+        document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
+        document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
+        document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
+        document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
+        document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
+        document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraDeux + prixCameraTrois + prixCameraCinq + " €";
+    } else if (panierCameraUne != null && panierCameraDeux != null && panierCameraQuatre != null && panierCameraCinq != null && panierCameraTrois == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauDeux + panierTableauQuatre + panierTableauCinq;
+        coutTotal.innerHTML = totalPanier;
+
+        document.getElementById('nomTableauUn').innerHTML = boutonSuppressionProduitUn + cameraType[0].nom;
+        document.getElementById('quantiteTableauUn').innerHTML = localStorage.getItem('quantiteCameraUne');
+        document.getElementById('lentilleTableauUn').innerHTML = localStorage.getItem('lentilleCameraUne');
+        document.getElementById('prixTableauUn').innerHTML = prixCameraUne + " €";
+        document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
+        document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
+        document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
+        document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
+        document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
+        document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
+        document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
+        document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
+        document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
+        document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraDeux + prixCameraQuatre + prixCameraCinq + " €";
     } else if (panierCameraUne != null && panierCameraDeux != null && panierCameraTrois != null && panierCameraQuatre != null && panierCameraCinq != null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauDeux + panierTableauTrois + panierTableauQuatre + panierTableauCinq;
         coutTotal.innerHTML = totalPanier;
@@ -627,112 +680,202 @@ function affichagePanier() {
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
         document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
         document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
         document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
-        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
         document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
         document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
         document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
-        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraDeux + prixCameraTrois + prixCameraQuatre + prixCameraCinq + " €";
+    } else if (panierCameraUne != null && panierCameraTrois != null && panierCameraQuatre != null && panierCameraDeux == null && panierCameraCinq == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauTrois + panierTableauQuatre;
+        coutTotal.innerHTML = totalPanier;
+
+        document.getElementById('nomTableauUn').innerHTML = boutonSuppressionProduitUn + cameraType[0].nom;
+        document.getElementById('quantiteTableauUn').innerHTML = localStorage.getItem('quantiteCameraUne');
+        document.getElementById('lentilleTableauUn').innerHTML = localStorage.getItem('lentilleCameraUne');
+        document.getElementById('prixTableauUn').innerHTML = prixCameraUne + " €";
+        document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
+        document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
+        document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
+        document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
+        document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
+        document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
+        document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraTrois + prixCameraQuatre + " €";
+    } else if (panierCameraUne != null && panierCameraTrois != null && panierCameraCinq != null && panierCameraDeux == null && panierCameraQuatre == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauTrois + panierTableauCinq;
+        coutTotal.innerHTML = totalPanier;
+
+        document.getElementById('nomTableauUn').innerHTML = boutonSuppressionProduitUn + cameraType[0].nom;
+        document.getElementById('quantiteTableauUn').innerHTML = localStorage.getItem('quantiteCameraUne');
+        document.getElementById('lentilleTableauUn').innerHTML = localStorage.getItem('lentilleCameraUne');
+        document.getElementById('prixTableauUn').innerHTML = prixCameraUne + " €";
+        document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
+        document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
+        document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
+        document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
+        document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
+        document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
+        document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraTrois + prixCameraCinq + " €";
+    } else if (panierCameraUne != null && panierCameraTrois != null && panierCameraQuatre != null && panierCameraCinq != null && panierCameraDeux == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauTrois + panierTableauQuatre + panierTableauCinq;
+        coutTotal.innerHTML = totalPanier;
+
+        document.getElementById('nomTableauUn').innerHTML = boutonSuppressionProduitUn + cameraType[0].nom;
+        document.getElementById('quantiteTableauUn').innerHTML = localStorage.getItem('quantiteCameraUne');
+        document.getElementById('lentilleTableauUn').innerHTML = localStorage.getItem('lentilleCameraUne');
+        document.getElementById('prixTableauUn').innerHTML = prixCameraUne + " €";
+        document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
+        document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
+        document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
+        document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
+        document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
+        document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
+        document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
+        document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
+        document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
+        document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraTrois + prixCameraQuatre + prixCameraCinq + " €";
+    } else if (panierCameraUne != null && panierCameraQuatre != null && panierCameraCinq != null && panierCameraDeux == null && panierCameraTrois == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauUn + panierTableauQuatre + panierTableauCinq;
+        coutTotal.innerHTML = totalPanier;
+
+        document.getElementById('nomTableauUn').innerHTML = boutonSuppressionProduitUn + cameraType[0].nom;
+        document.getElementById('quantiteTableauUn').innerHTML = localStorage.getItem('quantiteCameraUne');
+        document.getElementById('lentilleTableauUn').innerHTML = localStorage.getItem('lentilleCameraUne');
+        document.getElementById('prixTableauUn').innerHTML = prixCameraUne + " €";
+        document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
+        document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
+        document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
+        document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
+        document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
+        document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
+        document.getElementById('cout-total-produits').innerHTML = prixCameraUne + prixCameraQuatre + prixCameraCinq + " €";
     } else if (panierCameraDeux != null && panierCameraTrois != null && panierCameraUne == null && panierCameraQuatre == null && panierCameraCinq == null) {
-        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierCameraTrois;
+        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierTableauTrois;
         coutTotal.innerHTML = totalPanier;
 
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
         document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraDeux + prixCameraTrois + " €";
     } else if (panierCameraDeux != null && panierCameraQuatre != null && panierCameraUne == null && panierCameraTrois == null && panierCameraCinq == null) {
-        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierCameraQuatre;
+        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierTableauQuatre;
         coutTotal.innerHTML = totalPanier;
 
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
         document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
-        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraDeux + prixCameraQuatre + " €";
     } else if (panierCameraDeux != null && panierCameraCinq != null && panierCameraUne == null && panierCameraTrois == null && panierCameraQuatre == null) {
-        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierCameraCinq;
+        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierTableauCinq;
         coutTotal.innerHTML = totalPanier;
 
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
         document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
         document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
-        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraDeux + prixCameraCinq + " €";
     } else if (panierCameraDeux != null && panierCameraTrois != null && panierCameraQuatre != null && panierCameraUne == null && panierCameraCinq == null) {
-        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierCameraTrois + panierCameraQuatre;
+        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierTableauTrois + panierTableauQuatre;
         coutTotal.innerHTML = totalPanier;
 
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
         document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
         document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
         document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
-        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraDeux + prixCameraTrois + prixCameraQuatre + " €";
     } else if (panierCameraDeux != null && panierCameraTrois != null && panierCameraCinq != null && panierCameraUne == null && panierCameraQuatre == null) {
-        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierCameraTrois + panierCameraCinq;
+        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierTableauTrois + panierTableauCinq;
         coutTotal.innerHTML = totalPanier;
 
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
         document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
         document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
         document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
         document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
-        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
-    } else if (panierCameraDeux != null && panierCameraTrois != null && panierCameraQuatre != null && panierCameraCinq != null && panierCameraUne == null) {
-        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierCameraTrois + panierCameraQuatre + panierCameraCinq;
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
+        document.getElementById('cout-total-produits').innerHTML = prixCameraDeux + prixCameraTrois + prixCameraCinq + " €";
+    } else if (panierCameraDeux != null && panierCameraQuatre != null && panierCameraCinq != null && panierCameraUne == null && panierCameraTrois == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierTableauQuatre + panierTableauCinq;
         coutTotal.innerHTML = totalPanier;
 
         document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
         document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
         document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
-        document.getElementById('prixTableauDeux').innerHTML = localStorage.getItem('prixCameraDeux') + " €";
-        document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
-        document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
-        document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
         document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
         document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
-        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
         document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
         document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
         document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
-        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
+        document.getElementById('cout-total-produits').innerHTML = prixCameraDeux + prixCameraQuatre + prixCameraCinq + " €";
+    } else if (panierCameraDeux != null && panierCameraTrois != null && panierCameraQuatre != null && panierCameraCinq != null && panierCameraUne == null) {
+        panierProduits.innerHTML = panierTableauZero + panierTableauDeux + panierTableauTrois + panierTableauQuatre + panierTableauCinq;
+        coutTotal.innerHTML = totalPanier;
+
+        document.getElementById('nomTableauDeux').innerHTML = boutonSuppressionProduitDeux + cameraType[1].nom;
+        document.getElementById('quantiteTableauDeux').innerHTML = localStorage.getItem('quantiteCameraDeux');
+        document.getElementById('lentilleTableauDeux').innerHTML = localStorage.getItem('lentilleCameraDeux');
+        document.getElementById('prixTableauDeux').innerHTML = prixCameraDeux + " €";
+        document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
+        document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
+        document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
+        document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
+        document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
+        document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
+        document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
+        document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
+        document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraDeux + prixCameraTrois + prixCameraQuatre + prixCameraCinq + " €";
     } else if (panierCameraTrois != null && panierCameraQuatre != null && panierCameraUne == null && panierCameraDeux == null && panierCameraCinq == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauTrois + panierTableauQuatre;
@@ -741,11 +884,11 @@ function affichagePanier() {
         document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
         document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
         document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
         document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
-        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraTrois + prixCameraQuatre + " €";
     } else if (panierCameraTrois != null && panierCameraCinq != null && panierCameraUne == null && panierCameraDeux == null && panierCameraQuatre == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauTrois + panierTableauCinq;
@@ -754,11 +897,12 @@ function affichagePanier() {
         document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
         document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
         document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
         document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
         document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
-        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
+        document.getElementById('cout-total-produits').innerHTML = prixCameraTrois + prixCameraCinq + " €";
     } else if (panierCameraTrois != null && panierCameraQuatre != null && panierCameraCinq != null && panierCameraUne == null && panierCameraDeux == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauTrois + panierTableauQuatre + panierTableauCinq;
         coutTotal.innerHTML = totalPanier;
@@ -766,15 +910,15 @@ function affichagePanier() {
         document.getElementById('nomTableauTrois').innerHTML = boutonSuppressionProduitTrois + cameraType[2].nom;
         document.getElementById('quantiteTableauTrois').innerHTML = localStorage.getItem('quantiteCameraTrois');
         document.getElementById('lentilleTableauTrois').innerHTML = localStorage.getItem('lentilleCameraTrois');
-        document.getElementById('prixTableauTrois').innerHTML = localStorage.getItem('prixCameraTrois') + " €";
+        document.getElementById('prixTableauTrois').innerHTML = prixCameraTrois + " €";
         document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
         document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
-        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
         document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
         document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
         document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
-        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraTrois + prixCameraQuatre + prixCameraCinq + " €";
     } else if (panierCameraQuatre != null && panierCameraCinq != null && panierCameraUne == null && panierCameraDeux == null && panierCameraTrois == null) {
         panierProduits.innerHTML = panierTableauZero + panierTableauQuatre + panierTableauCinq;
@@ -783,11 +927,11 @@ function affichagePanier() {
         document.getElementById('nomTableauQuatre').innerHTML = boutonSuppressionProduitQuatre + cameraType[3].nom;
         document.getElementById('quantiteTableauQuatre').innerHTML = localStorage.getItem('quantiteCameraQuatre');
         document.getElementById('lentilleTableauQuatre').innerHTML = localStorage.getItem('lentilleCameraQuatre');
-        document.getElementById('prixTableauQuatre').innerHTML = localStorage.getItem('prixCameraQuatre') + " €";
+        document.getElementById('prixTableauQuatre').innerHTML = prixCameraQuatre + " €";
         document.getElementById('nomTableauCinq').innerHTML = boutonSuppressionProduitCinq + cameraType[4].nom;
         document.getElementById('quantiteTableauCinq').innerHTML = localStorage.getItem('quantiteCameraCinq');
         document.getElementById('lentilleTableauCinq').innerHTML = localStorage.getItem('lentilleCameraCinq');
-        document.getElementById('prixTableauCinq').innerHTML = localStorage.getItem('prixCameraCinq') + " €";
+        document.getElementById('prixTableauCinq').innerHTML = prixCameraCinq + " €";
         document.getElementById('cout-total-produits').innerHTML = prixCameraQuatre + prixCameraCinq + " €";
     }
 }
@@ -845,7 +989,7 @@ function supprimerProduitQuatre() {
     location.reload();
 }
 
-function supprimerProduitCCinq() {
+function supprimerProduitCinq() {
     let nombreProduits = localStorage.getItem('produitsPanier');
     let storageQuantiteCameraCinq = localStorage.getItem('quantiteCameraCinq');
     storageQuantiteCameraCinq = parseInt(storageQuantiteCameraCinq);
@@ -1032,7 +1176,7 @@ function validationFormulaire() {
         alert("Merci de lire et d'accepter les conditions générales de vente pour pouvoir continuer.");
         return false
     } else {
-        localStorage.clear();
+        localStorage.removeItem('produitsPanier');
         return true
     }
 }
