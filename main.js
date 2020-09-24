@@ -1036,6 +1036,7 @@ function validationFormulaire() {
     let paysValid = /^[a-zA-ZéèîïÉÈÎÏ]+([-'\s][a-zA-ZéèîïÉÈÎÏ]+)?$/;
 
     let checkBox = document.querySelector('#checkbox');
+    let erreurCheckBox = document.querySelector('#erreur-checkbox');
 
     let erreurFormulaire;
     
@@ -1170,10 +1171,15 @@ function validationFormulaire() {
         erreurFormulaire = 0;
     }
 
-    if (checkBox.checked == false && erreurFormulaire == 1) {
-        return false
-    } else if (checkBox.checked == false && erreurFormulaire == 0) {
-        alert("Merci de lire et d'accepter les conditions générales de vente pour pouvoir continuer.");
+    if (checkBox.checked == false) {
+        erreurCheckBox.innerHTML = "Merci de lire et d'accepter les conditions générales de vente."
+        erreurFormulaire = 1;
+    } else {
+        erreurCheckBox.innerHTML = "";
+        erreurFormulaire = 0;
+    }
+
+    if (erreurFormulaire == 1) {
         return false
     } else {
         localStorage.removeItem('produitsPanier');
