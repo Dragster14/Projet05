@@ -1006,11 +1006,11 @@ function supprimerProduitCinq() {
 function validationFormulaire() {
     let nom = document.querySelector('#nom');
     let erreurNom = document.querySelector('#erreur-nom');
-    let nomValid = /^[a-zA-ZéèîïÉÈÎÏ]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+    let nomValid = /^[a-zA-ZéèîïÉÈÎÏ]+([-'\s][a-zA-ZéèîïÉÈÎÏ]+)?$/;
 
     let prenom = document.querySelector('#prenom');
     let erreurPrenom = document.querySelector('#erreur-prenom');
-    let prenomValid = /^[a-zA-ZéèîïÉÈÎÏ]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+    let prenomValid = /^[a-zA-ZéèîïÉÈÎÏ]+([-'\s][a-zA-ZéèîïÉÈÎÏ]+)?$/;
 
     let email = document.querySelector('#email');
     let erreurEmail = document.querySelector('#erreur-email');
@@ -1025,7 +1025,7 @@ function validationFormulaire() {
 
     let ville = document.querySelector('#ville');
     let erreurVille = document.querySelector('#erreur-ville');
-    let villeValid = /^[a-zA-ZéèîïÉÈÎÏ]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+    let villeValid = /^[a-zA-ZéèîïÉÈÎÏ]+([-'\s][a-zA-ZéèîïÉÈÎÏ]+)?$/;
 
     let codePostal = document.querySelector('#codepostal');
     let erreurCodePostal = document.querySelector('#erreur-codepostal');
@@ -1033,7 +1033,7 @@ function validationFormulaire() {
 
     let pays = document.querySelector('#pays');
     let erreurPays = document.querySelector('#erreur-pays');
-    let paysValid = /^[a-zA-ZéèîïÉÈÎÏ]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+    let paysValid = /^[a-zA-ZéèîïÉÈÎÏ]+([-'\s][a-zA-ZéèîïÉÈÎÏ]+)?$/;
 
     let checkBox = document.querySelector('#checkbox');
 
@@ -1170,7 +1170,7 @@ function validationFormulaire() {
         erreurFormulaire = 0;
     }
 
-    if (checkBox.checked == true && erreurFormulaire == 1) {
+    if (checkBox.checked == false && erreurFormulaire == 1) {
         return false
     } else if (checkBox.checked == false && erreurFormulaire == 0) {
         alert("Merci de lire et d'accepter les conditions générales de vente pour pouvoir continuer.");
